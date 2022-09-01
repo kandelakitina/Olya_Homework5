@@ -2,23 +2,42 @@
 // трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
 
-int [] arr1 = CreateArrayRndInt (4, 0, 999);
-int [] resultArr = FindEvenNumber(arr1);
-PrintArray (arr1);
-PrintArray (resultArr);
-
+// Создаем функцию по созданию массива чисел
 
 int[] CreateArrayRndInt (int size, int min, int max)
 {
-    int[] array = new int [size];
+    int[] array = new int[size];
     Random rnd = new Random ();
-
     for (int i = 0; i <size; i++)
-{
-    array [i] = rnd.Next(min, max +1);
-}
+    {
+        array [i] = rnd.Next(min, max +1);
+    }
 return array;
 }
+
+// Вызываем функцию с нужным параметрами
+// и записываем результат (массив из 4х чисел)
+// в переменную "arr1"
+
+int [] arr1 = CreateArrayRndInt (4, 100, 999);
+
+// Создаем функцию, считающую количество четных
+// чисел в массиве
+
+int FindEvenNumber (int[]array)
+{
+    int count = 0;
+    for (int i = 0; i< array.Length; i++)
+    {
+        if (array[i] % 2 == 0) count++;
+    }
+    return count;
+}
+
+// Вызываем функцию и скармливаем ей перечень, а результат
+// записываем в переменную resultArr
+
+int resultArr = FindEvenNumber(arr1);
 
 void PrintArray (int[]array)
 {
@@ -27,28 +46,9 @@ void PrintArray (int[]array)
     {
         if (i < array.Length -1) Console.Write(array[i]+ ",");
     }
-    Console.Write(array[array.Length -1]);
+    Console.Write(array[array.Length]);
     Console.Write("]");
 }
-// int[] CalcArr(int [] arr)
-// {
-//     int size = arr.Length/2;
-//     if (int % 2 != 0) count++;
-    
-//     int[] resArr = new int [size];
-//     for (int i = 0; i < size; i++)
-//     {
-//         resArr [i] = arr[i]*arr [arr.Length -1 -i];
-//     }
-//     if (arr.Length %2 !=0) {resArr[resArr.Length -1] = arr[size];}   
-//     return resArr;
-// }
-int [] FindEvenNumber (int [] arr)
-{
-count = 0
-if (int % 2 != 0) count++;
-}
-for (int i = 0; i< array.Length; i++)
-    {
-        if (array[i] == int%2 ==0) count++;
-        
+
+PrintArray(arr1);
+Console.Write(resultArr);
